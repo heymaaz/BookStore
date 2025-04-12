@@ -5,15 +5,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.Import;
-import org.testcontainers.utility.TestcontainersConfiguration;
 
 @DataJpaTest(
         properties = {
             "spring.test.database.replace=none",
-            // "spring.datasource.url=jdbc:tc:postgresql:17.4-alpine3.21:///db",
+            "spring.datasource.url=jdbc:tc:postgresql:17.4-alpine3.21:///db",
         })
-@Import(TestcontainersConfiguration.class)
+// @Import(TestcontainersConfiguration.class)
 class ProductRepositoryTest {
 
     @Autowired
