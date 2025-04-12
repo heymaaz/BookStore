@@ -34,7 +34,7 @@ class ProductRepositoryTest {
 
     @Test
     void shouldReturnEmptyWhenProductNotFound() {
-        var product = productRepository.findByCode("invalid_exception_code");
+        var product = productRepository.findByCode("invalid_code");
         assertThat(product).isEmpty();
     }
 }
