@@ -1,4 +1,4 @@
-package com.maazchowdhry.bookstore.catalog_service;
+package com.maazchowdhry.bookstore.catalog;
 
 import org.springframework.boot.SpringApplication;
 
