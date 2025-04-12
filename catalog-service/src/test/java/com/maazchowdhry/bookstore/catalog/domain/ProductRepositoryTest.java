@@ -22,4 +22,19 @@ class ProductRepositoryTest {
         var products = productRepository.findAll();
         assertThat(products).hasSize(15);
     }
+
+    @Test
+    void shouldGetProductByCode() {
+        var product = productRepository.findByCode("P100").orElseThrow();
+        assertThat(product.getCode()).isEqualTo("P100");
+        assertThat(product.getName()).isEqualTo("The Hunger Games");
+        assertThat(product.getDescription()).isEqualTo("Winning will make you famous. Losing means certain death...");
+        assertThat(product.getPrice()).isEqualTo("34.0");
+    }
+
+    @Test
+    void shouldReturnEmptyWhenProductNotFound() {
+        var product = productRepository.findByCode("invalid_code");
+        assertThat(product).isEmpty();
+    }
 }
