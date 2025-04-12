@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<dockerImageName>heymaaz/bookstore-${project.artifactId}</dockerImageName>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -138,6 +139,12 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>${dockerImageName}</name>
+						<builder>dashaun/builder:tiny</builder><!-- For Mac with M1 chips -->
+					</image>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
