@@ -29,7 +29,7 @@ public class ProductService {
 
         return new PagedResult<>(
                 productsPage.getContent(),
-                productsPage.getTotalPages(),
+                productsPage.getTotalElements(),
                 productsPage.getNumber() + 1,
                 productsPage.getTotalPages(),
                 productsPage.isFirst(),
