@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - catalog-service/**
+      - '.github/workflows/catalog-service.yml'
     branches:
       - '**'
 
