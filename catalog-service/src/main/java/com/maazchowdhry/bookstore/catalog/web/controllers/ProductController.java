@@ -31,6 +31,6 @@ class ProductController {
 
     @GetMapping("/secrets")
     ResponseEntity<String> shareSecrets() {
-        return ResponseEntity.ok().body("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");
+        return ResponseEntity.ok().body(productService.shareSecrets());
     }
 }

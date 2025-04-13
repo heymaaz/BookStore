@@ -42,4 +42,8 @@ public class ProductService {
     public Optional<Product> findByCode(String code) {
         return productRepository.findByCode(code).map(ProductMapper::toProduct);
     }
+
+    public String shareSecrets() {
+        return "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";
+    }
 }
