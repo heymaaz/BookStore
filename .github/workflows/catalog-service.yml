@@ -6,7 +6,9 @@ on:
       - catalog-service/**
       - '.github/workflows/catalog-service.yml'
     branches:
-      - '**'
+      - 'main'
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
@@ -18,7 +20,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ${{env.working-directory}}
+        working-directory: ${{ env.working-directory }}
     steps:
       - uses: actions/checkout@v4
 
