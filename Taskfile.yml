@@ -43,11 +43,11 @@ tasks:
 
   start_using_dockerHub_image:
     cmds:
-      - docker run -d --name catalog-db -p 15432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres:17.4-alpine3.21
+      - docker run -d --name catalog-db -p 127.0.0.1:15432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres postgres:17.4-alpine3.21
       - task: sleep
         vars:
           DURATION: 10
-      - docker run -d --name catalog-service -p 8081:8081 -e SPRING_PROFILES_ACTIVE=docker -e DB_URL=jdbc:postgresql://host.docker.internal:15432/postgres -e DB_USERNAME=postgres -e DB_PASSWORD=postgres heymaaz/bookstore-catalog-service:latest
+      - docker run -d --name catalog-service -p 127.0.0.1:8081:8081 -e SPRING_PROFILES_ACTIVE=docker -e DB_URL=jdbc:postgresql://host.docker.internal:15432/postgres -e DB_USERNAME=postgres -e DB_PASSWORD=postgres heymaaz/bookstore-catalog-service:latest
       - echo "Services started! Access API at http://localhost:8081/api/products"
 
   stop_using_dockerHub_image:
